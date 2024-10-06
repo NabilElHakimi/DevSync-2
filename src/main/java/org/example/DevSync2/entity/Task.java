@@ -8,6 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Table(name = "tasks")
 public class Task {
 
     @Id
