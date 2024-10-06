@@ -13,14 +13,12 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true, nullable = false)
     private String name;
-
-    private String description;
 
     @ManyToMany
     @JoinTable(
-            name = "tags_tasks",
+            name = "task_tags",
             joinColumns = @JoinColumn(name = "tag_id"),
             inverseJoinColumns = @JoinColumn(name = "task_id")
     )
