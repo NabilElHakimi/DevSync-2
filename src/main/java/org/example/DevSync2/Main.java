@@ -18,6 +18,8 @@ public class Main {
         String hashedPassword = new HashPassword().hashedPassword(user.getPassword());
         user.setPassword(hashedPassword);
 
+        System.out.println(new UserRepository().save(user));
+
 
         new UserRepository().findAll().forEach(user1 -> {
             System.out.println(user1.getFirstName() + " " + user1.getLastName());
