@@ -3,7 +3,7 @@ package org.example.DevSync2.repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.example.DevSync2.entity.Task;
+import org.example.DevSync2.entity.Token;
 import org.example.DevSync2.entity.Token;
 
 import java.util.List;
@@ -13,28 +13,28 @@ public class TokenRepository {
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
 
 
-    public boolean save(Task task) {
+    public boolean save(Token token) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.persist(task);
+        em.persist(token);
         em.getTransaction().commit();
         em.close();
         return true;
     }
 
-    public boolean update(Task task) {
+    public boolean update(Token token) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.merge(task);
+        em.merge(token);
         em.getTransaction().commit();
         em.close();
         return true;
     }
 
-    public boolean delete(Task task) {
+    public boolean delete(Token token) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.remove(task);
+        em.remove(token);
         em.getTransaction().commit();
         em.close();
         return true;
@@ -49,13 +49,13 @@ public class TokenRepository {
         return tokens;
     }
 
-    public Task findById(Long id) {
+    public Token findById(Long id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        Task task = em.find(Task.class, id);
+        Token token = em.find(Token.class, id);
         em.getTransaction().commit();
         em.close();
-        return task;
+        return token;
     }
 
 }
